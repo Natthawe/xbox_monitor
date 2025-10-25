@@ -1,0 +1,7 @@
+xbox_monitor_params:
+  ros__parameters:
+    device_path: '/dev/input/js_xbox_bt'
+    pub_topic: '/xbox/connected'
+    check_rate_hz: 10.0
+    heartbeat_sec: 0.1
+    publish_on_change: true
