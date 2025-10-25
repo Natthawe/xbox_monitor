@@ -1,0 +1,16 @@
+# สร้างไฟล์ไว้ใน /etc/systemd/system
+[Unit]
+Description=Disable Bluetooth autosuspend / sleep (robust)
+After=bluetooth.service
+Wants=bluetooth.service
+ConditionPathExistsGlob=/sys/class/bluetooth
+
+[Service]
+Type=oneshot
+ExecStartPre=/usr/bin/udevadm settle -t 10
+ExecStart=/usr/local/bin/disable-bt-sleep.sh
+RemainAfterExit=yes
+TimeoutStartSec=20
+
+[Install]
+WantedBy=multi-user.target

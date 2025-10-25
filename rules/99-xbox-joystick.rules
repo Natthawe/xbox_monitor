@@ -1,0 +1,3 @@
+# สร้างไฟล์ไว้ใน /etc/udev/rules.d
+ACTION=="add|change", SUBSYSTEM=="input", KERNEL=="js*", ENV{ID_INPUT_JOYSTICK}=="1", ENV{ID_BUS}=="bluetooth", \
+  ATTRS{uniq}=="ac:8e:bd:15:96:4a", MODE="0666", GROUP="input", SYMLINK+="input/js_xbox_bt"
